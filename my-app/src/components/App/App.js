@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch }from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import About from '../About/About';
 import Bosses from '../Bosses/Bosses';
+import Boss from '../Boss/Boss';
+
 
 class App extends Component {
   render() {
@@ -17,6 +19,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={ About } />
               <Route exact path="/bosses" component={ Bosses } />
+              <Route exact path="/bosses/:id" component={ Boss } />
               <Route path='*' render={() => <div> 404 Not found </div>} />
             </Switch> 
             </Router>        

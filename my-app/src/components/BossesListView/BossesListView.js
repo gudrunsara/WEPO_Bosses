@@ -9,7 +9,7 @@ class BossesListView extends React.Component {
             list = this.props.bosses.map((boss) => {
                 return(
                     <BossesListViewItem 
-                        key={boss.id} name={boss.name} description={boss.description} image={boss.img}/>
+                        key={boss.id} id={boss.id} name={boss.name} description={boss.description} image={boss.img}/>
                 )
             })
         }

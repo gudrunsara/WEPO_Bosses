@@ -1,27 +1,49 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getAllBosses } from '../../actions/BossActions.js';
+
 import validator  from 'validator'; 
+// import toastr from 'toastr';
 
 
 
 class CreateBossForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      NewBoss: {
+        name: '',
+        description: '', 
+        image: ''
+      }
+    };
+  };
+
+  addBoss(e) {
+    if( this.state.NewBoss.name !== "" &&
+        this.state.NewBoss.description !== "" &&
+        this.state.NewBoss.image !== "" ) {
+        }
+  }
+
     render() {
        // const { name, description, image } = this.props;
         return (
-            <div className="boss-item">
-                <h3>{name}</h3>
-                <p>{description}</p>
-                <img class="BossImg" src={image} alt= 'img'/>
+            <div className="CreateBossForm">
+              <form onSubmit={e => this.addBoss(e) }>
+                Name: <input type="text" name="Name" placeholder="Name" value={this.state.NewBoss.name}/>
+                Description: <input type="text" name="Description" placeholder="Description" value={this.state.NewBoss.description}/>
+                Image: <input type="text" name="Image" placeholder="image URL" value={this.state.NewBoss.image}/>
+                <input type="submit" value="Submit" className="btn" />
+              </form>
             </div>
         );
     }
 };
 
-CreateBossForm.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
-};
 
-export default CreateBossForm;
+
+
+export default connect () (CreateBossForm);

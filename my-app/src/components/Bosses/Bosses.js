@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getAllBosses } from '../../actions/BossActions.js';
 import BossesListView from '../BossesListView/BossesListView';
+import CreateBossForm from '../CreateBossForm/CreateBossForm';
+
 
 class Bosses extends React.Component {
 
@@ -17,6 +19,8 @@ class Bosses extends React.Component {
 
     return (
       <div className="Bosses">
+        <h2> Create a new boss! </h2>  
+         <CreateBossForm/>
         <h2> List of bosses </h2>
         <BossesListView bosses={this.props.bosses.bosses} />
       </div>
@@ -26,18 +30,9 @@ class Bosses extends React.Component {
 }
 
 const mapStateToProps = ({ bosses }) => {
-  console.log('hello');
-  console.log(bosses);
   return {
     bosses
   }; 
 }
-
-// Connect: 
-// Connect fær ákveðin skilyrði, það sem kemur 
-// út úr því er fall sem tekur við vcomponent
-// Tekur inn fallið mapStateToProps, sem er kallað á í hverst skipti
-// sem redux store breytist. 
-
 
 export default connect(mapStateToProps, { getAllBosses })(Bosses);
