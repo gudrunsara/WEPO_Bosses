@@ -1,0 +1,22 @@
+
+.NavBar{
+  background-color: lightblue;
+  display: block; 
+  height: 150px; 
+}
+
+.NavLinks a {
+  color: black;
+  font-style: bold;
+}
+
+.NavLinks {
+  display: flexbox;
+  float: right;
+  font-style: bold; 
+}
+
+.BossImg{
+  width:  100px;
+  height: 100px;
+}
